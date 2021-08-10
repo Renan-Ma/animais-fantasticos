@@ -1,7 +1,7 @@
 import ScrollSuave from './modules/scroll-suave.js';
 import initAnimacaoScroll from './modules/scroll-animacao.js';
 import TabFaq from './modules/tab-faq.js';
-import iniTabNav from './modules/tab-nav.js';
+import TabNav from './modules/tab-nav.js';
 import iniModal from './modules/modal.js';
 import iniTooltip from './modules/tooltip.js';
 import iniDropdownMenu from './modules/dropdown-menu.js';
@@ -16,8 +16,11 @@ scrollSuave.init();
 const tabFaq = new TabFaq('[data-faq="faq"] dt');
 tabFaq.init();
 
+const tabNav = new TabNav('[data-menu="menu"] li', '[data-conteudo="conteudo"] section');
+tabNav.init();
+
 initAnimacaoScroll();
-iniTabNav();
+
 iniModal();
 iniTooltip();
 iniDropdownMenu();
