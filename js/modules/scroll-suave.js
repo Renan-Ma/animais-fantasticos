@@ -1,26 +1,36 @@
-export default function initScrollSuave() {
-  const linksInternos = document.querySelectorAll('[data-menu="menu"] a[href^="#"]');
+export default class ScrollSuave {
+  constructor(links, options) {
+    this.linksInternos = document.querySelectorAll(links);
+    if(options === undefined) {
+      this.options = {
+      behavior: "smooth",
+      block: 'start'//espaço para o topo
+      };
+   } else {
+      this.options = options;
+   }
 
-  function scrollToSection(event) {
+   this.scrollToSection = this.scrollToSection.bind(this);
+  }
+
+  scrollToSection(event) {
     event.preventDefault();
     const href = event.currentTarget.getAttribute('href');//seleciona apenas o atributo href do elemento
     const section = document.querySelector(href);
 
-    section.scrollIntoView ({
-      behavior: "smooth",
-      block: 'start',//espaço para o topo
-    });
-
-    /* FORMA ALTERNATIVA DE SCROLL SUAVE
-    const topo = section.offsetTop; // retorna distancia até o topo da pagina
-    window.scrollTo( { //criação de objeto
-      top: topo,
-      behavior: 'smooth', //efeito de scroll suave, apenas alguns nave
-    }) */
-
+    section.scrollIntoView (this.options);
   }
 
-  linksInternos.forEach((link) => {
-    link.addEventListener('click', scrollToSection);
+  addLinkEvent() {
+  this.linksInternos.forEach((link) => {
+    link.addEventListener('click', this.scrollToSection);
   })
+  }
+
+  init() {
+    if (this.linksInternos.length) {
+      this.addLinkEvent();
+    }
+    return this;
+  }
 }
