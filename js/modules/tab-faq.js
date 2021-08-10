@@ -1,20 +1,25 @@
-export default function iniTabFaq() {
-
-  const faqList = document.querySelectorAll('[data-faq="faq"] dt');
-  const activeClass = 'ativo';
-
-  function ativarFaq() {
-  this.classList.toggle(activeClass);
-  this.nextElementSibling.classList.toggle(activeClass); //this aponta para o elemento dentro do forEach (item) e nextElementSibling aponta para o proximo elemento no mesmo nivel de item no index.html
-}
-
-  if (faqList.length) {
-    faqList[0].classList.add(activeClass);
-    faqList[0].nextElementSibling.classList.add(activeClass);
+export default class TabFaq {
+  constructor(list){
+    this.faqList = document.querySelectorAll(list);
+    this.activeClass = 'ativo';
+  }
 
 
-  faqList.forEach((item) => {
-    item.addEventListener('click', ativarFaq);
-  });
+  taggleFaq(item) {
+  item.classList.toggle(this.activeClass);
+  item.nextElementSibling.classList.toggle(this.activeClass);
+  }
+
+  addFaqList(){
+    this.faqList.forEach((item) => {
+      item.addEventListener('click', () => this.taggleFaq(item));
+    });
+  }
+
+  init(){
+    if(this.faqList.length) {
+      this.taggleFaq(this.faqList[0]);//ativar primeiro item da lista
+      this.addFaqList();
+    }
   }
 }
