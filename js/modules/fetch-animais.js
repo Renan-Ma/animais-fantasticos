@@ -8,7 +8,6 @@ export default function initFetchAnimais() {
     const numerosGrid = document.querySelector('.numeros-grid');
     animaisJson.forEach(animal => {
       const divAnimal = createAnimal(animal);
-      console.log(divAnimal);
       numerosGrid.appendChild(divAnimal);
     });
     initAnimaNumeros();

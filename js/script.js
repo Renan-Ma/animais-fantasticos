@@ -3,7 +3,7 @@ import initAnimacaoScroll from './modules/scroll-animacao.js';
 import TabFaq from './modules/tab-faq.js';
 import TabNav from './modules/tab-nav.js';
 import Modal from './modules/modal.js';
-import iniTooltip from './modules/tooltip.js';
+import Tooltip from './modules/tooltip.js';
 import iniDropdownMenu from './modules/dropdown-menu.js';
 import iniMenuMobile from './modules/menu-mobile.js';
 import initFuncionamento from './modules/funcionamento.js';
@@ -22,8 +22,11 @@ tabNav.init();
 const modal = new Modal('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]');
 modal.init();
 
+const tooltip = new Tooltip('[data-tooltip]');
+tooltip.init();
+
 initAnimacaoScroll();
-iniTooltip();
+
 iniDropdownMenu();
 iniMenuMobile();
 initFuncionamento();
