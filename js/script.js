@@ -2,7 +2,7 @@ import ScrollSuave from './modules/scroll-suave.js';
 import initAnimacaoScroll from './modules/scroll-animacao.js';
 import TabFaq from './modules/tab-faq.js';
 import TabNav from './modules/tab-nav.js';
-import iniModal from './modules/modal.js';
+import Modal from './modules/modal.js';
 import iniTooltip from './modules/tooltip.js';
 import iniDropdownMenu from './modules/dropdown-menu.js';
 import iniMenuMobile from './modules/menu-mobile.js';
@@ -19,9 +19,10 @@ tabFaq.init();
 const tabNav = new TabNav('[data-menu="menu"] li', '[data-conteudo="conteudo"] section');
 tabNav.init();
 
-initAnimacaoScroll();
+const modal = new Modal('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]');
+modal.init();
 
-iniModal();
+initAnimacaoScroll();
 iniTooltip();
 iniDropdownMenu();
 iniMenuMobile();

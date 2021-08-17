@@ -1,29 +1,43 @@
-export default function iniModal(){
+export default class Modal {
+  constructor(botaoAbrir, botaoFechar, containerModal) {
+    this.botaoAbrir = document.querySelector(botaoAbrir);
+    this.botaoFechar = document.querySelector(botaoFechar);
+    this.containerModal = document.querySelector(containerModal);
 
-  const botaoAbrir = document.querySelector('[data-modal="abrir"]');
-  const botaoFechar = document.querySelector('[data-modal="fechar"]');
-  const containerModal = document.querySelector('[data-modal="container"]');
-
-  function abrirModal(event) {
-    event.preventDefault();//previne default(sair da pagina)
-    containerModal.classList.add('ativo');
+    //bind this ao callback para fazer referência ao objeto da classe
+    this.eventToggleModal = this.eventToggleModal.bind(this);
+    this.cliqueForaModal = this.cliqueForaModal.bind(this);
   }
 
-  function fecharModal(event) {
-    event.preventDefault();//previne default
-    containerModal.classList.remove('ativo')
+  //abre ou fecha modal
+  toggleModal() {
+    this.containerModal.classList.toggle('ativo');
   }
 
-  function cliqueForaModal(event) {
-    if (event.target === this)//verificar se o event.target é igual o this. Obs: this agora virou todo o conteudo da pagina fora do formulario. event.target mostra exatamento em qual parte do codigo está sendo clicado
-      fecharModal(event);
+  //add evento de toggle ao modal
+  eventToggleModal(event) {
+    event.preventDefault();
+    this.toggleModal();
   }
 
-  if (botaoAbrir && botaoFechar && containerModal) {//verifica se as 3 const existem, se alguma não existir as funções abaixo não fazem nada
-
-    botaoAbrir.addEventListener('click', abrirModal);
-    botaoFechar.addEventListener('click', fecharModal);
-    containerModal.addEventListener('click', cliqueForaModal);
+  //fecha modal ai clicar ao lado de fora
+  cliqueForaModal(event) {
+    if (event.target === this.containerModal){
+      this.toggleModal();
+    }
   }
 
+  //adiciona os eventos ao elemento do modal
+  addModalEvents(){
+    this.botaoAbrir.addEventListener('click', this.eventToggleModal);
+    this.botaoFechar.addEventListener('click', this.eventToggleModal);
+    this.containerModal.addEventListener('click', this.cliqueForaModal);
+  }
+  
+  init() {
+    if (this.botaoAbrir && this.botaoFechar && this.containerModal){
+      this.addModalEvents();
+    }
+    return this;
+  }
 }
