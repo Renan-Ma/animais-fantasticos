@@ -21,5 +21,6 @@ export default class TabFaq {
       this.taggleFaq(this.faqList[0]);//ativar primeiro item da lista
       this.addFaqList();
     }
+    return this;
   }
 }
