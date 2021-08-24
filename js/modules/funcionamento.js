@@ -1,21 +1,40 @@
-export default function initFuncionamento() {
+export default class Funcionamento {
+  constructor(funcionamento) {
+    this.funcionamento = document.querySelector(funcionamento);
 
-const funcionamento = document.querySelector('[data-semana]');
-const diasSemana = funcionamento.dataset.semana.split(',').map(Number);//pega os numeros dentro da data-semana  //split transforma em array separando cada elemento pelo valor informado  //map transforma a array que era de string em array de numeros
-const horarioSemana = funcionamento.dataset.horario.split(',').map(Number);
+  }
 
-const dataAgora = new Date();
-const diaAgora = dataAgora.getDay()
-const horarioAgora = dataAgora.getHours();
+  dadosFuncionamento() {
+    this.diasSemana = this.funcionamento.dataset.semana.split(',').map(Number);
+    this.horarioSemana = this.funcionamento.dataset.horario.split(',').map(Number);
+  }
 
-const semanaAberto = diasSemana.indexOf(diaAgora) !== -1;//indexof procura dentro de diasSemana que possui o o conteudo de diaAgora e se tiver retorna o número da posição, se não tiver retorna -1. Então está verificando se retorna true ou false essa linha
+  dadosAgora() {
+    this.dataAgora = new Date();
+    this.diaAgora = this.dataAgora.getDay()
+    this.horarioAgora = this.dataAgora.getUTCHours() - 3;
+  }
 
-const horarioAberto = (horarioAgora >= horarioSemana[0] && horarioAgora < horarioSemana[1]);//verifica se o horarioAgora corresponde ao horario entre as 8 e 18 que é o horario de funcionamento.//Retorna true ou false
+  estaAberto() {
+    const semanaAberto = this.diasSemana.indexOf(this.diaAgora) !== -1;
+    const horarioAberto = (this.horarioAgora >= this.horarioSemana[0] && this.horarioAgora < this.horarioSemana[1]);
+    return semanaAberto && horarioAberto;
+  }
 
-if (semanaAberto && horarioAberto) {
-  funcionamento.classList.add('aberto');
-}
+  ativaAberto() {
+    if (this.estaAberto()){
+    this.funcionamento.classList.add('aberto');
+    }
+  }
 
+  init() {
+    if(this.funcionamento){
+      this.dadosFuncionamento();
+      this.dadosAgora();
+      this.ativaAberto();
+    }
+    return this;
+  }
 }
 
 
