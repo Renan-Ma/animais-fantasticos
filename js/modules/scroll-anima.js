@@ -15,12 +15,10 @@ export default class AnimacaoScroll {
         offset: Math.floor(sectionTop - this.windowMetade),
       };
     });
-    console.log(this.distance);
   }
 
   //verifica a distância em cada objeto em relação ao scroll site
   checkDistance() {
-    console.log(window.pageYOffset);
     this.distance.forEach(item => {
       if(window.pageYOffset > item.offset) {
         item.element.classList.add('ativo');
