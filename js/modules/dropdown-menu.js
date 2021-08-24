@@ -1,21 +1,43 @@
 import cliqueFora from './outsideclick.js'
 
-export default function iniDropdownMenu(){
+export default class DropdownMenu  {
+  constructor(dropdownMenus, events) {
+  this.dropdownMenus = document.querySelectorAll(dropdownMenus);
+  this.activeClass = 'active';
 
-const dropdownMenus = document.querySelectorAll('[data-dropdown]');
+  //define touchastart e click como argumento padrão de events caso o usuário não defina
+  if (events === undefined) {
+    this.events = ['touchastart', 'click'];
+  } else{
+    this.events = events;
+  }
 
-dropdownMenus.forEach((menu) => {
-  ['touchastart', 'click'].forEach((userEvent) => {//cria um array e coloca dois eventos dentro e em seguida faz um forEach no array. Obs: touchastart é igual o click porém serve para mobile
-    menu.addEventListener(userEvent, clicou)
-  })
-})
+  this.activeDropdown = this.activeDropdown.bind(this);
+  }
 
-function clicou(event) {
-  event.preventDefault();
-  this.classList.toggle('active');//this nesse caso faz referencia a 'menu' do forEach
-  cliqueFora(this,['touchastart', 'click'], () => {
-    this.classList.remove('active')
-  });
-}
+  //ativa o dropdown e add a função que observa o clique fora dele
+  activeDropdown(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    element.classList.toggle(this.activeClass);
+    cliqueFora(element, this.events, () => {
+      element.classList.remove(this.activeClass)
+    });
+  }
 
+  //adiciona os eventos ao dropdown menu
+  addDropdownMenusEvent() {
+    this.dropdownMenus.forEach((menu) => {
+      this.events.forEach((userEvent) => {
+        menu.addEventListener(userEvent, this.activeDropdown)
+      })
+    })
+  }
+
+  init() {
+    if (this.dropdownMenus.length) {
+      this.addDropdownMenusEvent();
+    }
+    return this;
+  }
 }
