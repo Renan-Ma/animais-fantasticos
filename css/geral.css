@@ -278,12 +278,19 @@ display: none;
 }
 
 [data-faq="faq"] dt::after {
-  content: '⮯';
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background: url('../img/arrow-red.svg') no-repeat center center;
   margin-left: 10px;
+  transform: rotate(90deg);
+  transition: .3s;
 }
 
 [data-faq="faq"] dt.ativo::after {
-  content: '⮭';
+  content: '';
+  transform: rotate(-90deg);
 }
 
 @keyframes slideDown {
@@ -330,3 +337,9 @@ display: none;
   border-radius: 2px;
 }
 
+.arrow-black {
+  background: url('../img/arrow-black.svg') no-repeat center center;
+  display: inline-block;
+  width: 8px;
+  height: 10px;
+}

@@ -17,6 +17,7 @@ export default class MenuMobile {
   }
 
   openMenu(){
+    event.preventDefault();
     this.menuList.classList.add(this.activeClass);
     this.menuButton.classList.add(this.activeClass);
     cliqueFora(this.menuList, this.events, () => {
