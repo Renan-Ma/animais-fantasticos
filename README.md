@@ -6,7 +6,7 @@
 
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#aprendizados">Aprendizados</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
- 
+  <a href="#Link">Surge</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
 <br>
@@ -20,8 +20,6 @@ Esse projeto foi desenvolvido no curso JavaScript Completo ES6, da Origamid, log
 Acesse nosso site [clicando aqui!](http://renan-animais-fantasticos.surge.sh/)
 
 ## 🎨 Layout
-
-Layout: 
 
 ![image](https://user-images.githubusercontent.com/69327864/174492033-e6e6463f-74f0-4ee9-8525-ff536cb4ec61.png)
 ![image](https://user-images.githubusercontent.com/69327864/174492133-a14242e6-7026-4eff-a4bb-b77f139a189f.png)
