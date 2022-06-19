@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#aprendizados">Aprendizados</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#Link">Surge</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
