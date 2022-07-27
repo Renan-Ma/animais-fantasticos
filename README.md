@@ -15,9 +15,9 @@
 
 Esse projeto foi desenvolvido no curso JavaScript Completo ES6, da Origamid, logo foi utilizado muito JavaScript, além de HTML e CSS.
 
-## 🔗 Link Surge: 
+## 🔗 Link: 
 
-Acesse nosso site [clicando aqui!](http://renan-animais-fantasticos.surge.sh/)
+Acesse o projeto [clicando aqui!](http://renan-animais-fantasticos.surge.sh/)
 
 ## 🎨 Layout
 
@@ -39,3 +39,6 @@ Acesse nosso site [clicando aqui!](http://renan-animais-fantasticos.surge.sh/)
 
 - Map, Filter, Reduce, Bind...
 
+## 👨‍💻 Desenvolvedor:
+   
+| [Renan Martinez](https://github.com/Renan-Ma) | 
