@@ -42,3 +42,4 @@ Acesse o projeto [clicando aqui!](http://renan-animais-fantasticos.surge.sh/)
 ## 👨‍💻 Desenvolvedor:
    
 | [Renan Martinez](https://github.com/Renan-Ma) | 
+
